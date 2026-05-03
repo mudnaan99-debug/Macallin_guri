@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1010912567536",
+    "project_id": "macalin-guri",
+    "storage_bucket": "macalin-guri.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010912567536:android:6decedd25062b68e27e235",
+        "android_client_info": {
+          "package_name": "macalin.quri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBse_0fUEETSfM4eP5qqN15kxSfaABiups"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
