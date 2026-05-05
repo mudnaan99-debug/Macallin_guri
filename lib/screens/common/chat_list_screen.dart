@@ -33,7 +33,7 @@ class ChatListScreen extends StatelessWidget {
             itemCount: chats.length,
             itemBuilder: (context, index) {
               final chat = chats[index];
-              final otherId = chat.participants.firstWhere((p) => p != user.uid);
+              final otherId = chat.participants.firstWhere((p) => p != uid);
               
               return ListTile(
                 leading: const CircleAvatar(backgroundColor: Colors.amber, child: Icon(Icons.person)),

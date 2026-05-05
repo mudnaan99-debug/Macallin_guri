@@ -266,7 +266,8 @@ INSERT INTO `users_user` (`id`, `password`, `last_login`, `is_superuser`, `first
 (3, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 0, '', '', 0, 1, '2026-05-02 16:29:51.565772', 'tutor@sample.macalin', 'Macallin Tusaale', NULL, 'tutor', '', 'active', '2026-05-02 16:29:51.565772'),
 (4, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 0, '', '', 0, 1, '2026-05-02 16:29:51.576824', 'parent@sample.macalin', 'Waalid Tusaale', NULL, 'parent', '', 'active', '2026-05-02 16:29:51.576824'),
 (5, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 0, '', '', 0, 1, '2026-05-02 16:29:51.586731', 'publisher@sample.macalin', 'Publisher Tusaale', NULL, 'publisher', '', 'active', '2026-05-02 16:29:51.586731'),
-(6, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 0, '', '', 0, 1, '2026-05-02 16:29:51.620114', 'demo@sample.macalin', 'Demo Isticmaale', NULL, 'student', '', 'active', '2026-05-02 16:29:51.620114');
+(6, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 0, '', '', 0, 1, '2026-05-02 16:29:51.620114', 'demo@sample.macalin', 'Demo Isticmaale', NULL, 'student', '', 'active', '2026-05-02 16:29:51.620114'),
+(7, 'pbkdf2_sha256$1000000$AbCdEfGhIjKlMnOpQrStUv$cYkp916j4rdYqIctd+I31e9AqAQ9YTcLVTkK0SnPBhg=', NULL, 1, '', '', 1, 1, '2026-05-05 08:30:00.000000', 'teamit@macalin.com', 'Team IT', NULL, 'admin', '', 'active', '2026-05-05 08:30:00.000000');
 
 -- --------------------------------------------------------
 

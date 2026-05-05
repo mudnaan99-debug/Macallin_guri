@@ -52,7 +52,7 @@ class SessionController extends ChangeNotifier {
       final res = await _dio.post<Map<String, dynamic>>(
         '/api/auth/token/',
         data: {
-          'username': email.trim(),
+          'email': email.trim(),
           'password': password,
         },
       );
