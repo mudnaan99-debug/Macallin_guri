@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class UserModel {
   final String id;
   final String username;
-  final String role; // Django: student|tutor|parent|publisher|admin — legacy: teacher|user|teamIt
+  final String role; // API / DB: student|tutor|parent|publisher|admin; legacy UI: teacher|user|teamIt
   final DateTime createdAt;
   final String status; // "active" | "blocked"
   final String? email;

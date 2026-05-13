@@ -13,9 +13,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  String email = '';
-  String password = '';
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isLoading = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,22 +61,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 40),
                 TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     prefixIcon: Icon(Icons.email_outlined),
                   ),
-                  onChanged: (val) => email = val,
-                  validator: (val) => val!.isEmpty ? 'Enter an email' : null,
+                  validator: (val) => val == null || val.trim().isEmpty ? 'Enter an email' : null,
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  controller: _passwordController,
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     prefixIcon: Icon(Icons.lock_outline),
                   ),
                   obscureText: true,
-                  onChanged: (val) => password = val,
-                  validator: (val) => val!.length < 6 ? 'Password too short' : null,
+                  validator: (val) => val == null || val.length < 6 ? 'Password too short' : null,
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -85,23 +94,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
                         onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            setState(() => isLoading = true);
-                            final session =
-                                Provider.of<SessionController>(context, listen: false);
-                            final ok = await session.login(email.trim(), password);
-                            if (!mounted) return;
-                            if (!ok) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                    'Login failed. Check email/password and API URL (see README).',
-                                  ),
-                                ),
-                              );
-                            }
-                            setState(() => isLoading = false);
+                          if (!_formKey.currentState!.validate()) return;
+                          FocusScope.of(context).unfocus();
+                          setState(() => isLoading = true);
+                          final messenger = ScaffoldMessenger.of(context);
+                          final session =
+                              Provider.of<SessionController>(context, listen: false);
+                          final ok = await session.login(
+                            _emailController.text,
+                            _passwordController.text,
+                          );
+                          if (!mounted) return;
+                          if (!ok) {
+                            final msg = session.lastLoginError ??
+                                'Login failed. Check email and password.';
+                            messenger.showSnackBar(
+                              SnackBar(content: Text(msg)),
+                            );
                           }
+                          setState(() => isLoading = false);
                         },
                         child: const Text('LOGIN'),
                       ),

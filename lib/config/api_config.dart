@@ -1,13 +1,10 @@
-/// Backend Django API base URL (no trailing slash).
-///
-/// Android emulator → host machine: use default `10.0.2.2`.
-/// iOS Simulator: `--dart-define=API_BASE_URL=http://127.0.0.1:8000`
-/// Taleefan dhab ah: IP-ga kombiyuutarka (tusaale `http://192.168.1.5:8000`)
+/// REST base URL (no trailing slash). API paths also omit trailing slash (Apache 301 otherwise).
 class ApiConfig {
   ApiConfig._();
 
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://192.168.1.83:8000',
+    defaultValue:
+        'http://10.150.141.126/Macllin_guri/backend_ci4/public',
   );
 }
